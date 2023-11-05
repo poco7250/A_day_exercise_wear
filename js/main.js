@@ -16,6 +16,26 @@ window.onload = function () {
     } else {
         console.log('가속도 센서가 지원되지 않는 환경입니다.');
     }
+
+ // 이메일 등록 버튼 클릭 이벤트 처리
+    document.getElementById("registerButton").addEventListener("click", function() {
+        // 이메일 입력값 가져오기
+        const emailInput = document.getElementById("emailInput");
+        const enteredEmail = emailInput.value;
+
+        // 등록된 이메일 표시
+        const displayedEmail = document.getElementById("displayedEmail");
+        if (enteredEmail) { // 입력값이 비어있지 않은 경우
+            displayedEmail.textContent = enteredEmail;
+
+            // 입력 칸 비우기 (선택사항)
+            emailInput.value = "";
+
+            // document.getElementById("timer").style.display = "block"; // 클릭 시 timer 숨김
+        } else { // 입력값이 비어있는 경우
+            alert("이메일을 입력하세요."); // 경고 메시지를 표시
+        }
+    });
     
  // 시작 버튼을 클릭할 때 실행될 함수
     startButton.addEventListener("click", function() {
@@ -25,6 +45,8 @@ window.onload = function () {
             accelerometer.addEventListener('reading', accelerometerHandler);
             accelerometer.start();
             console.log("가속도 센서 활성화");
+         // 시작 버튼 비활성화
+            startButton.disabled = true;
         }
     	
       // 타이머를 시작하고 1초마다 시간을 업데이트
@@ -59,6 +81,8 @@ window.onload = function () {
           accelerometer.stop();
           console.log("가속도 센서 비활성화");
       }
+      // 시작 버튼 활성화 (다시 클릭 가능)
+      startButton.disabled = false;
     });
 
     // 리셋 버튼을 클릭할 때 실행될 함수
