@@ -49,8 +49,8 @@
 		    padding: 10px 20px; /* 버튼 패딩을 조절하여 크기 조절 */
 		}
 		#emailRegistration {
-   			margin-left: 45px; /* 왼쪽 여백을 추가하여 왼쪽으로 이동 (조절 가능) */
-   			margin-top: 60px; /* 원하는 만큼 아래로 이동 */
+   			margin-left: 55px; /* 왼쪽 여백을 추가하여 왼쪽으로 이동 (조절 가능) */
+   			margin-top: 45px; /* 원하는 만큼 아래로 이동 */
    			position: absolute; /* 절대 위치로 설정 */
 		}
         #timer {
@@ -67,6 +67,9 @@
 		    margin-left: auto; /* 좌우 여백을 자동으로 설정하여 가운데 정렬 */
 		    margin-right: auto; /* 좌우 여백을 자동으로 설정하여 가운데 정렬 */
 		}
+		#logoutButton {
+            visibility: hidden;
+        }
     </style>
 </head>
 
@@ -78,6 +81,7 @@
         <input type="password" id="passwordInput" placeholder="비밀번호 입력">
         <button id="loginButton">로그인</button>
         <div id="registeredEmailDisplay">등록된 이메일: <span id="displayedEmail"></span></div>
+        <button id="logoutButton">로그아웃</button>
     </div>
     <!-- 타이머 UI 추가 -->
     <div id="timer">
