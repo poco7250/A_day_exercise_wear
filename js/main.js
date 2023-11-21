@@ -96,7 +96,7 @@ window.onload = function () {
         // 등록된 이메일 표시
         const displayedEmail = document.getElementById("displayedEmail");
         if (enteredEmail) { // 입력값이 비어있지 않은 경우
-        	signInWithEmailAndPassword(auth, enteredEmail, enteredPassword)
+        	firebase.auth().signInWithEmailAndPassword(enteredEmail, enteredPassword)
         	.then((userCredential) => {
         		// 로그인 성공
         		var user = userCredential.user;
@@ -105,6 +105,12 @@ window.onload = function () {
 				// 입력 칸 비우기 (선택사항)
 				emailInput.value = "";
 				passwordInput.value = "";
+        	})
+        	.catch((error) => {
+        		const errorCode = error.code;
+                const errorMessage = error.message;
+                console.error("로그인 실패:", errorCode, errorMessage);
+                alert("이메일과 비밀번호가\n올바르지 않습니다.");
         	});
         } else { // 입력값이 비어있는 경우
             alert("이메일과 비밀번호를\n올바르게 입력하세요."); // 경고 메시지를 표시

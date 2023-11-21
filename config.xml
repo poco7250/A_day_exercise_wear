@@ -8,6 +8,7 @@
     <icon src="a_day_exercise.png"/>
     <name>adayexercise</name>
     <tizen:privilege name="http://tizen.org/privilege/internet"/>
+    <access origin="*" subdomains="true"></access>
     <tizen:profile name="wearable"/>
     <tizen:setting background-support="disable" encryption="disable" hwkey-event="enable"/>
 </widget>
