@@ -76,7 +76,7 @@ window.onload = function () {
     // 리셋 버튼을 클릭할 때 실행될 함수
     resetButton.addEventListener("click", function() {
     	const currentDate = new Date();
-    	const year = currentDate.getFullYear();
+    	const year = String(currentDate.getFullYear());
     	const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // 월은 0부터 시작하므로 1을 더하고 2자리로 만듦
     	const day = String(currentDate.getDate()).padStart(2, '0'); // 일도 2자리로 만듦
 
@@ -113,6 +113,9 @@ window.onload = function () {
             } else {
                 // 문서가 없는 경우, 새로운 문서 생성
                 timeRef.set({
+                	year: year,
+                	month: month,
+                	day: day,
                     totalseconds: timeInSeconds,
                 }).then(() => {
                     console.log("시간이 성공적으로 저장되었습니다.");
